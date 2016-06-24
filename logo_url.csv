@@ -1,0 +1,10 @@
+website,Hyperlink,URL in raw
+http://www.dnvod.eu/,"=HYPERLINK(""http://www.dnvod.eu//logo.ico"")",http://www.dnvod.eu//logo.ico
+https://www.airbnb.com/,"=HYPERLINK(""https://a1.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico"")",https://a1.muscache.com/airbnb/static/logotype_favicon-21cc8e6c6a2cca43f061d2dcabdf6e58.ico
+https://gopro.com/,"=HYPERLINK(""NULL"")",NULL
+https://twitter.com/,"=HYPERLINK(""https://twitter.com///abs.twimg.com/favicons/favicon.ico"")",https://twitter.com///abs.twimg.com/favicons/favicon.ico
+https://intl.alipay.com/,"=HYPERLINK(""https://i.alipayobjects.com/common/favicon/favicon.ico"")",https://i.alipayobjects.com/common/favicon/favicon.ico
+https://www.periscope.tv/,"=HYPERLINK(""https://www.periscope.tv//v/images/favicon.ico"")",https://www.periscope.tv//v/images/favicon.ico
+http://www.yahoo.com,"=HYPERLINK(""https://s.yimg.com/rz/l/favicon.ico"")",https://s.yimg.com/rz/l/favicon.ico
+https://www.google.com,"=HYPERLINK(""https://www.google.com/images/branding/product/ico/googleg_lodp.ico"")",https://www.google.com/images/branding/product/ico/googleg_lodp.ico
+http://mixrank.com,"=HYPERLINK(""http://mixrank.com/static/images/favicon.ico"")",http://mixrank.com/static/images/favicon.ico
