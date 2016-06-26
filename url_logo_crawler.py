@@ -7,18 +7,12 @@ import argparse
 crawl_target=[]
 report_stack = [];
 
-#crawl_target=[];
-#f = open("top.csv",'r');
-#reader = csv.reader(f,delimiter=',');
-#for row in reader:
-#	temp = row;
-#	crawl_target.append("https://www.%s"%(temp[1]));
-	#crawl_target.append("http://www.%s"%(temp[1]));
-
 def crawl_mixrank(size):
-	#only work n mixrank.com/web/sites
+	#only work on mixrank.com/web/sites
 	return_me = [];
-	stepping = 250
+	stepping = 250;
+	if size < 250:
+		stepping = size
 	i = 0;
 	while i < size:	
 		k = 0
@@ -110,6 +104,11 @@ def get_url_logo(url):
 		logo = get_logo(html);
 		if not (".com" in logo or ".net" in logo or ".org" in logo or ".edu" in logo):
 			return url + logo;
+		elif not ("https" in logo or "http" in logo):
+			if "https" in url:
+				return "https://" + logo;
+			else:
+				return "http://" + logo;
 		else:
 			return logo;
 	except:
@@ -157,7 +156,6 @@ class worker(threading.Thread):
                 except:
                         i = None;
                 while i:
-			print "working on %s" %i;
                         try:
                                 logo_url = get_url_logo(i);
                         except:
@@ -173,30 +171,53 @@ class worker(threading.Thread):
 
 	def stopped(self):
         	return self._stop.isSet()
+class progress_bar(threading.Thread):
+        global crawl_target;
+        def __init__(self,size):
+                threading.Thread.__init__(self);
+                self.worker_ID = -1;
+		self.size = size;
+                self._stop = threading.Event();
+	def run(self):
+		size = self.size
+		while crawl_target:
+			complete = size - len(crawl_target);
+                        complete_p = (complete / float(size)) * 100;
+                        print "Status: %.2f%% compeleted \r" %(complete_p),
+		return 0;
 def parse_cmdline_args():
         parser = argparse.ArgumentParser(description='super web crawler');
-        parser.add_argument('--length', dest='size',default=None, help='How long does the list need to be');
-	parser.add_argument('--worker', dest='worker_count',default=None, help='Total number of worker for crawl');
+        parser.add_argument('--length', dest='size',default="10", help='How long does the list need to be');
+	parser.add_argument('--worker', dest='worker_count',default="1", help='Total number of worker for crawl');
+	parser.add_argument('--file', dest='name',default="logo_url", help='name for the log file. E.g. logo_url');
         args = parser.parse_args();
         return args;	
 
 def main():
+	global crawl_target;
 	together_conquer = [];
 	worker_count = int(args.worker_count);
 	size = int(args.size);
+	name = args.name + ".csv";
+	print "Starting...";
 	crawl_mixrank(size);
-	with open("logo_url.csv","w+") as fp:
+	print "Initializing workers..."
+	with open(name,"w+") as fp:
 		file = csv.writer(fp,delimiter = ',');
 		file.writerows([["website","Hyperlink","URL in raw"]]);
+		progress = progress_bar(size);
+		progress.start();
 		for i in range(worker_count):
 			together_conquer.append(worker(i));
 			together_conquer[i].start();
-			time.sleep(0.5);
+			time.sleep(0.1);
 		while crawl_target:
-			time.sleep(5);
+			time.sleep(1);
+			
+		print "Stopping" 
 		for i in range(worker_count):
 			together_conquer[i].stop();
-		time.sleep(30);
+		time.sleep(2);
 		file.writerows(report_stack);
 
 
