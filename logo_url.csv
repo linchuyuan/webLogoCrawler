@@ -1,0 +1,11 @@
+website,Hyperlink,URL in raw
+https://www.walmart.com/,"=HYPERLINK(""https://www.walmart.com/favicon.ico"")",https://www.walmart.com/favicon.ico
+https://www.apple.com/,"=HYPERLINK(""https://www.apple.com/favicon.ico"")",https://www.apple.com/favicon.ico
+https://www.ebay.com/,"=HYPERLINK(""https://www.ebay.com/favicon.ico"")",https://www.ebay.com/favicon.ico
+https://www.yahoo.com/,"=HYPERLINK(""https://s.yimg.com/rz/l/favicon.ico"")",https://s.yimg.com/rz/l/favicon.ico
+https://www.twitter.com/,"=HYPERLINK(""https:////abs.twimg.com/favicons/favicon.ico"")",https:////abs.twimg.com/favicons/favicon.ico
+https://www.microsoft.com/,"=HYPERLINK(""https:////www.microsoft.com/favicon.ico?v2"")",https:////www.microsoft.com/favicon.ico?v2
+https://www.amazon.com/,"=HYPERLINK(""https://www.amazon.com/favicon.ico"")",https://www.amazon.com/favicon.ico
+https://www.youtube.com/,"=HYPERLINK(""https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico"")",https://s.ytimg.com/yts/img/favicon-vflz7uhzw.ico
+https://www.facebook.com/,"=HYPERLINK(""https://static.xx.fbcdn.net/rsrc.php/yv/r/hzmapinyypw.ico"")",https://static.xx.fbcdn.net/rsrc.php/yv/r/hzmapinyypw.ico
+https://www.google.com/,"=HYPERLINK(""https://www.google.com//images/branding/product/ico/googleg_lodp.ico"")",https://www.google.com//images/branding/product/ico/googleg_lodp.ico

@@ -10,7 +10,7 @@ report_stack = [];
 def crawl_mixrank(size):
 	#only work on mixrank.com/web/sites
 	return_me = [];
-	stepping = 250;
+	stepping = 25;
 	if size < 250:
 		stepping = size
 	i = 0;
